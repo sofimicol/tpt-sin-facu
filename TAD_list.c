@@ -1,7 +1,9 @@
-#include "TAD_AST.h"
-#include "TAD_list.h"
+#include "TAD_AST.H"
+#include "TAD_LIST.H"
+#include "TAD_STR.H"
 void append(Tdata* list, Tdata elem) { //cargar una lista que dentro puede tener datos str, set o list
 	Tdata nuevo; 
+	nuevo = create_list();
 	nuevo=copy_ast(elem);
 	if (esvacio(*list)) {
 		(*list) = nuevo; //primer elemento
@@ -28,11 +30,9 @@ int length(Tdata list) { // Calcula el tamanio de lalista
 Tdata concatena_list(Tdata L1, Tdata L2) { 
 	Tdata resultado = create_list(); // Declaro set
 	Tdata fin = resultado;
-	Tdata aux;
 	Tdata nuevo;
-	if(esvacio(L1) == 1 && esvacio(L2) == 1) {
+	if(esvacio(L1) == 0 && esvacio(L2) == 0) {
 		resultado = copy_ast(L1);
-		aux = L2;
 		
 		while(fin->next != NULL) {
 			fin = fin->next;
@@ -63,7 +63,7 @@ Tdata concatena_list(Tdata L1, Tdata L2) {
 }
 
 int search(Tdata list, Tdata elem){
-	Tdata aux = copy_ast(list);
+	Tdata aux = list;
 	while (aux != NULL) {
 		if (equals_node(aux->data, elem)==1) { //Comparo los nodos
 			return 1; // El elemento se ecnontro en la lista
@@ -72,3 +72,4 @@ int search(Tdata list, Tdata elem){
 	}
 	return 0; //El elemento no se encontro 
 }
+
