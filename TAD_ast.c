@@ -172,6 +172,29 @@ Tdata create_str(){
 									} while(opcion!=0);
 									return arbol;
 								}
+										void append(Tdata* list, Tdata elem) {
+											
+											if (elem != NULL){
+											
+											Tdata nuevo = create_list();          
+											nuevo->data = copy_ast(elem);         
+											nuevo->next = NULL;
+											
+											if ((*list)->data == NULL) {
+												(*list)->data = nuevo;
+											}
+											else{
+											Tdata aux = (*list)->data;
+											while (aux->next != NULL) {
+												aux = aux->next;
+											}
+											
+											aux->next = nuevo;
+											}
+											}else{
+												printf("\nLista vacia");
+										}
+										}
 									void mostrarArbol(Tdata arbol) {
 										
 										switch (arbol->nodeType) {
