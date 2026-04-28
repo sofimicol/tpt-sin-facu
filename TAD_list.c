@@ -1,20 +1,7 @@
 #include "TAD_AST.H"
 #include "TAD_LIST.H"
 #include "TAD_STR.H"
-void append(Tdata* list, Tdata elem) { //cargar una lista que dentro puede tener datos str, set o list
-	Tdata nuevo; 
-	nuevo = create_list();
-	nuevo=copy_ast(elem);
-	if (esvacio(*list)) {
-		(*list) = nuevo; //primer elemento
-	}else {
-		Tdata aux = *list;
-		while (aux->next != NULL) { // Desplazamiento para obtener posicion del anteultimo nodo
-			aux = aux->next;
-		}
-		aux->next = nuevo;// Cargo el elemento al final de la lisa
-	}
-}
+
 int length(Tdata list) { // Calcula el tamanio de lalista
 	int c = 0; // Contador
 	Tdata aux = list; // Auxiliar (opcional) para despalzarce
