@@ -7,8 +7,8 @@
 typedef struct Nodo{
 	char data;
 	struct Nodo*next;
-}TNodo;
-typedef TNodo*str;
+}Tnodo;
+typedef Tnodo*str;
 str create_str_ast(); //crea una estructura de tipo str
 str load();//insertar una lista de caracteres por consola 
 str load2(const char*);
