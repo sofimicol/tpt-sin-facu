@@ -1,6 +1,5 @@
 #ifndef TAD_STR_H
 #define TAD_STR_H
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -18,4 +17,6 @@ str concat(str,str);
 void free_str(str);
 int compare_str(str cad1, str cad2);
 str copy_str(str original);
+void append_str(str*cabeza, str nuevo);
+str create_nodo(char c);
 #endif
