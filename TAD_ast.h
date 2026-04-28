@@ -32,4 +32,5 @@ Tdata create_ast();
 int equals_node(Tdata, Tdata);
 Tdata copy_ast(Tdata list);
 void eliminarprimero(Tdata* set);
+void append(Tdata* list, Tdata elem);
 #endif
