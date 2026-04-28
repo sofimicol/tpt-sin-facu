@@ -15,40 +15,39 @@ int length(Tdata list) { // Calcula el tamanio de lalista
 }
 
 Tdata concatena_list(Tdata L1, Tdata L2) { 
-	Tdata resultado = create_list(); // Declaro set
-	Tdata fin = resultado;
-	Tdata nuevo;
-	if(esvacio(L1) == 0 && esvacio(L2) == 0) {
-		resultado = copy_ast(L1);
-		
-		while(fin->next != NULL) {
-			fin = fin->next;
-		}
-		while(L2 != NULL) {
-			nuevo = create_list();
-			nuevo->data = copy_ast(L2); //{0,1}
-			//append
-			fin->next = nuevo;
-			fin = nuevo;
-			
-			L2 = L2->next;
-		}
-	}else {
-		if(esvacio(L1) == 1) {
+		Tdata resultado = create_list(); // Declaro set
+		Tdata nuevo;
+		if(esvacio(L1) == 0 && esvacio(L2) == 0) {
 			resultado = copy_ast(L1);
-			
-		}else {
-			if(esvacio(L2) == 1){
-				resultado = copy_ast(L2);
+			Tdata fin = resultado->data;
+			while(fin->next != NULL) {
+				fin = fin->next;
 			}
-			else{
-				resultado=NULL;
+			Tdata aux = L2->data;
+			while(aux != NULL) {
+				nuevo = create_list();
+				nuevo->data = copy_ast(aux->data); //{0,1}
+				//append
+				fin->next = nuevo;
+				fin = nuevo;
+				
+				aux= aux->next;
+			}
+		}else {
+			if(esvacio(L1) == 1) {
+				resultado = copy_ast(L2);
+				
+			}else {
+				if(esvacio(L2) == 1){
+					resultado = copy_ast(L1);
+				}
+				else{
+					resultado=create_list();
+				}
 			}
 		}
+		return resultado;
 	}
-	return resultado;
-}
-
 int search(Tdata list, Tdata elem){
 	Tdata aux = list;
 	while (aux != NULL) {
