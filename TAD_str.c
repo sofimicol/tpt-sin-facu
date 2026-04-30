@@ -78,21 +78,16 @@ str create_str_ast(){//crea una estructura de tipo str sin datos
 							}
 							return concat;
 						}
-							int compare_str(str cad1, str cad2){
-								while(cad1!=NULL && cad2!=NULL){
-									if(cad1->data!=cad2->data){
+						int compare_str(str cad1, str cad2){
+								while(cad1 != NULL && cad2 != NULL){
+									if(cad1->data != cad2->data){
 										return 0;
 									}
-									cad1=cad1->next; //sigue al siguiente caracter
-									cad2=cad2->next;
+									cad1 = cad1->next;
+									cad2 = cad2->next;
 								}
 								
-								//si ambas terminaron iguales
-								if(cad1==NULL && cad2==NULL){
-									return 1;
-								} else {
-									return 0;  //s2 es m?s corta
-								}
+								return (cad1 == NULL && cad2 == NULL);
 							}
 								void free_str(str c){ //libera memoria de str 
 									str aux;
