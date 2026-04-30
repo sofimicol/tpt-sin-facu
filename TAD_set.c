@@ -157,5 +157,24 @@ int subset(Tdata A, Tdata B) {
 	}
 	return 1; //Todos los elementos de B estan en A
 }
-
+int subset(Tdata A, Tdata B) {
+				if (A == NULL || A->data == NULL)
+					return 1; // conjunto vacío cualquier conjunto
+				if (B == NULL || B->data == NULL)
+					return 0; // conjunto no vacío no puede estar en vacío
+				Tdata auxA = A->data;
+				int compara;
+				while (auxA != NULL) {
+					//printf("%d",belongs(B, auxA->data));
+					while(aux != NULL && equals_node(B->data, auxA->data) == 0){
+						aux = aux->next;
+					}
+					if (aux != NULL) {//Busca el elemento en la lista 
+						printf("\n");
+						return 0;//El elemento no esta en el conjunto 
+					}
+					auxA = auxA->next;
+				}
+				return 1; // Todos los elementos de A están en B
+			}
 
